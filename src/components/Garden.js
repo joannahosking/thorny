@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faTrashAlt, faTint } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrashAlt, faTint, faInfo } from '@fortawesome/free-solid-svg-icons';
 
 const Garden = ({ garden, availablePlants, addPlant, removePlant, waterPlant }) => {
     function handleAdd(e) {
@@ -23,15 +23,18 @@ const Garden = ({ garden, availablePlants, addPlant, removePlant, waterPlant }) 
                 {garden.map((plant, key) => (
                     <li key={key}>
                         <div className="illustration">
-                            <Link to={`/plants/${plant.id}`}>{plant.name}</Link>
+                            <img src={`/illustrations/${plant.id}.svg`} alt={plant.name} />
                         </div>
                         {Math.floor((new Date() - new Date(Date.parse(plant.lastWatered))) / 864000) >= plant.water && 
                             <div className="water">
-                                <button value={plant.id} onClick={handleWater}><FontAwesomeIcon icon={faTint} /></button>
+                                <button value={plant.id} onClick={handleWater} className="button"><FontAwesomeIcon icon={faTint} /></button>
                             </div>
                         }
                         <div className="add-remove">
-                            <button value={plant.id} onClick={handleRemove}><FontAwesomeIcon icon={faTrashAlt} /></button>
+                            <Link to={`/plants/${plant.id}`} className="button">
+                                <FontAwesomeIcon icon={faInfo} />
+                            </Link>
+                            <button value={plant.id} onClick={handleRemove} className="button"><FontAwesomeIcon icon={faTrashAlt} /></button>
                         </div>
                     </li>
                 ))}
@@ -41,13 +44,16 @@ const Garden = ({ garden, availablePlants, addPlant, removePlant, waterPlant }) 
                 {availablePlants.map((plant, key) => (
                     <li key={key}>
                         <div className="illustration">
-                            <Link to={`/plants/${plant.id}`}>{plant.name}</Link>
+                            <img src={`/illustrations/${plant.id}.svg`} alt={plant.name} />
                         </div>
-                        {garden.length < 6 && 
                             <div className="add-remove">
-                                <button value={plant.id} onClick={handleAdd}><FontAwesomeIcon icon={faPlus} /></button>
+                                <Link to={`/plants/${plant.id}`} className="button">
+                                    <FontAwesomeIcon icon={faInfo} />
+                                </Link>
+                                {garden.length < 6 && 
+                                    <button value={plant.id} onClick={handleAdd} className="button"><FontAwesomeIcon icon={faPlus} /></button>
+                                }
                             </div>
-                        }
                     </li>
                 ))}
             </ul>

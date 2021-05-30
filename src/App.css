@@ -61,23 +61,15 @@ body {
 }
 
 .header svg {
-  width: 80px;
+  width: 100px;
 }
 
 .garden li {
   max-width: 180px;
 }
 
-.garden .illustration {
-  height: 80px;
-}
-
 .available li {
   max-width: 100px;
-}
-
-.available .illustration {
-  height: 40px;
 }
 
 .garden, .available {
@@ -86,13 +78,18 @@ body {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 25px;
   list-style-type: none;
+}
+
+.garden img, .available img {
+  width: 100%;
+  height: auto;
 }
 
 .garden li, .available li {
@@ -119,29 +116,31 @@ body {
 }
 
 .garden .add-remove, .available .add-remove {
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .garden .water, .available .water {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
 }
 
-.garden .water button, .available .water button {
+.garden .water .button, .available .water .button {
+  width: 45px;
+  height: 45px;
   background-color: #519c94;
+  font-size: 24px;
 }
 
-.garden button, .available button {
-  display: block;
+.garden .button, .available .button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
   width: 32px;
   height: 32px;
-  margin: 0 auto;
-  padding: 4px;
+  margin: 0;
+  padding: 7px;
   background-color: #141414;
   border-radius: 50%;
   border: none;
@@ -149,8 +148,17 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
+  text-decoration: none;
+  vertical-align: middle;
   cursor: pointer;
+}
+
+.garden .button + .button, .available .button + .button {
+  margin-left: 5px;
+}
+
+.plant-details img {
+  max-width: 300px;
 }
 
 .footer {

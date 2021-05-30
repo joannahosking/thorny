@@ -45,9 +45,6 @@ function App() {
     // keep the lists up to date in local storage
     localStorage.setItem('garden', JSON.stringify(garden));
     localStorage.setItem('availablePlants', JSON.stringify(availablePlants));
-    // for testing :)
-    console.log(garden);
-    console.log(availablePlants);
   }, [garden, availablePlants]);
 
   return (

@@ -62,7 +62,7 @@ body {
     text-align: center;
 
     svg {
-        width: 80px;
+        width: 100px;
     }
 }
 
@@ -70,29 +70,26 @@ body {
     li {
         max-width: 180px;
     }
-
-    .illustration {
-        height: 80px;
-    }
 }
 
 .available {
     li {
         max-width: 100px;
     }
-
-    .illustration {
-        height: 40px;
-    }
 }
 
 .garden, .available {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
     padding: 25px;
     list-style-type: none;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 
     li {
         position: relative;
@@ -111,28 +108,30 @@ body {
     }
 
     .add-remove {
-        position: absolute;
-        bottom: -5px;
-        right: -5px;
+        margin-top: 10px;
+        text-align: center;
     }
 
     .water {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 0;
+        left: 0;
 
-        button {
+        .button {
+            width: 45px;
+            height: 45px;
             background-color: darken($primary, 30);
+            font-size: 24px;
         }
     }
 
-    button {
-        display: block;
+    .button {
+        box-sizing: border-box;
+        display: inline-block;
         width: 32px;
         height: 32px;
-        margin: 0 auto;
-        padding: 4px;
+        margin: 0;
+        padding: 7px;
         background-color: $text;
         border-radius: 50%;
         border: none;
@@ -142,8 +141,19 @@ body {
             size: 14px;
             weight: 700;
         }
-        text-transform: uppercase;
+        text-decoration: none;
+        vertical-align: middle;
         cursor: pointer;
+
+        &+ .button {
+            margin-left: 5px;
+        }
+    }
+}
+
+.plant-details {
+    img {
+        max-width: 300px;
     }
 }
 
