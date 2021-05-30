@@ -2,7 +2,7 @@ export const plants = [
     {
         id: 'bunny-ears',
         name: 'Bunny Ears Cactus',
-        water: 3,
+        water: 0, //3
         lastWatered: null,
     },
     {

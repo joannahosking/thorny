@@ -5,6 +5,7 @@ import Garden from './components/Garden';
 import Plants from './components/Plants';
 import NotFound from './components/NotFound';
 import { plants } from './assets/plants';
+import { ReactComponent as Logo } from './assets/logo.svg';
 
 function App() {
   const [garden, setGarden] = React.useState(JSON.parse(localStorage.getItem('garden')) || []);
@@ -12,7 +13,7 @@ function App() {
 
   // add a plant to the garden
   function addPlant(added) {
-    const newPlant = plants.find(plant => plant.id === added);
+    let newPlant = plants.find(plant => plant.id === added);
     // set the last watered date to today
     newPlant.lastWatered = new Date();
     setGarden([...garden, newPlant]);
@@ -21,7 +22,7 @@ function App() {
 
   // remove a plant from the garden
   function removePlant(removed) {
-    const removedPlant = plants.find(plant => plant.id === removed);
+    let removedPlant = plants.find(plant => plant.id === removed);
     // reset the last watered date
     removedPlant.lastWatered = null;
     setAvailablePlants([...availablePlants, removedPlant]);
@@ -53,7 +54,9 @@ function App() {
     <div className="container">
       <Router>
         <header>
-          <Link to="/">Thorny</Link>
+          <div className="header">
+            <Link to="/"><Logo /></Link>
+          </div>
         </header>
         <main>
           <Switch>
@@ -70,7 +73,9 @@ function App() {
         </main>
       </Router>
       <footer>
-        <p>Built by <a href="https://joannahosking.com/" target="_blank" rel="noreferrer">Joanna Hosking</a></p>
+        <div className="footer">
+          <p>Built by <a href="https://joannahosking.com/" target="_blank" rel="noreferrer">Joanna Hosking</a></p>
+        </div>
       </footer>
     </div>
   );
