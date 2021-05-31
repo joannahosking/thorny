@@ -39,7 +39,8 @@
 }
 
 body {
-  background-color: #ced3d1;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(75%, #ced3d1), to(#8aa89c));
+  background: linear-gradient(to bottom, #ced3d1 75%, #8aa89c);
 }
 
 .container {
@@ -65,11 +66,16 @@ body {
 }
 
 .garden li {
-  max-width: 180px;
+  max-width: 25%;
+}
+
+.garden p {
+  max-width: 540px;
+  text-align: center;
 }
 
 .available li {
-  max-width: 100px;
+  max-width: 15%;
 }
 
 .garden, .available {
@@ -89,6 +95,7 @@ body {
 
 .garden img, .available img {
   width: 100%;
+  max-width: 100px;
   height: auto;
 }
 
@@ -162,6 +169,7 @@ body {
 }
 
 .footer {
-  text-align: center;
+  padding: 0 25px;
+  text-align: right;
 }
 /*# sourceMappingURL=App.css.map */

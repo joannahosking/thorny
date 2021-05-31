@@ -18,14 +18,16 @@ const Garden = ({ garden, availablePlants, addPlant, removePlant, waterPlant }) 
 
     return (
         <div>
-            <h1>Garden</h1>
             <ul className="garden">
+                {garden.length < 1 && 
+                    <p>Choose up to 4 plants below to add to your garden. Remember to check back daily and water the plants that have dried out.<br /><strong>Happy gardening!</strong></p>
+                }
                 {garden.map((plant, key) => (
                     <li key={key}>
                         <div className="illustration">
                             <img src={`/illustrations/${plant.id}.svg`} alt={plant.name} />
                         </div>
-                        {Math.floor((new Date() - new Date(Date.parse(plant.lastWatered))) / 864000) >= plant.water && 
+                        {Math.floor((new Date() - new Date(Date.parse(plant.lastWatered))) / 86400000) >= plant.water && 
                             <div className="water">
                                 <button value={plant.id} onClick={handleWater} className="button"><FontAwesomeIcon icon={faTint} /></button>
                             </div>
@@ -50,7 +52,7 @@ const Garden = ({ garden, availablePlants, addPlant, removePlant, waterPlant }) 
                                 <Link to={`/plants/${plant.id}`} className="button">
                                     <FontAwesomeIcon icon={faInfo} />
                                 </Link>
-                                {garden.length < 6 && 
+                                {garden.length < 4 && 
                                     <button value={plant.id} onClick={handleAdd} className="button"><FontAwesomeIcon icon={faPlus} /></button>
                                 }
                             </div>
