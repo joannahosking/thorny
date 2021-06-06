@@ -11,11 +11,11 @@ const Plants = () => {
     return (
         <div className="plant-details">
             <h1>{data.name}</h1>
+            <span className="scientific-name"><em>({data.scientificName})</em></span>
             <img src={`/illustrations/${data.id}.svg`} alt={data.name} />
-            <p><em>{data.scientificName}</em></p>
-            <p><FontAwesomeIcon icon={faTint} /> every {data.water} days</p>
-            <p>{data.description} - <a href={data.wiki} target="_blank" rel="noreferrer">Wikipedia</a></p>
-            <Link to="/">Back to the Garden...</Link>
+            <p className="water-details"><FontAwesomeIcon icon={faTint} /> every {data.water} days</p>
+            <p className="details-description">{data.description} - <a href={data.wiki} target="_blank" rel="noreferrer">Wikipedia</a></p>
+            <Link to="/">Back to the Garden</Link>
         </div>
     )
 }

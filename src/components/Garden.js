@@ -20,12 +20,13 @@ const Garden = ({ garden, availablePlants, addPlant, removePlant, waterPlant }) 
         <div>
             <ul className="garden">
                 {garden.length < 1 && 
-                    <p>Choose up to 4 plants below to add to your garden. Remember to check back daily and water the plants that have dried out.<br /><strong>Happy gardening!</strong></p>
+                    <p>Choose up to 4 plants below to add to your garden. Remember to check back daily and water the plants that have dried out.<br /><br /><strong>Happy gardening!</strong></p>
                 }
                 {garden.map((plant, key) => (
                     <li key={key}>
                         <div className="illustration">
                             <img src={`/illustrations/${plant.id}.svg`} alt={plant.name} />
+                            <span className="plant-name">{plant.name}</span>
                         </div>
                         {Math.floor((new Date() - new Date(Date.parse(plant.lastWatered))) / 86400000) >= plant.water && 
                             <div className="water">
@@ -41,12 +42,13 @@ const Garden = ({ garden, availablePlants, addPlant, removePlant, waterPlant }) 
                     </li>
                 ))}
             </ul>
-            <h2>Available Plants</h2>
+            <h2>Available Plants:</h2>
             <ul className="available">
                 {availablePlants.map((plant, key) => (
                     <li key={key}>
                         <div className="illustration">
                             <img src={`/illustrations/${plant.id}.svg`} alt={plant.name} />
+                            <span className="plant-name">{plant.name}</span>
                         </div>
                             <div className="add-remove">
                                 <Link to={`/plants/${plant.id}`} className="button">

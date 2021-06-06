@@ -45,9 +45,13 @@ body {
 }
 
 .container {
+    box-sizing: border-box;
+    position: relative;
     width: 100%;
     max-width: 1200px;
+    min-height: 100vh;
     margin: 0 auto;
+    padding-bottom: 80px;
     color: $text;
     font-family: Montserrat, sans-serif;
     font-size: 16px;
@@ -66,9 +70,19 @@ body {
     }
 }
 
+h2 {
+    margin: 50px 0 0;
+    font: {
+        size: 18px;
+        weight: 700;
+    }
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .garden {
     li {
-        max-width: 25%;
+        max-width: 100%;
     }
 
     p {
@@ -79,7 +93,7 @@ body {
 
 .available {
     li {
-        max-width: 15%;
+        max-width: 50%;
     }
 }
 
@@ -88,13 +102,15 @@ body {
     justify-content: space-around;
     align-items: flex-end;
     flex-wrap: wrap;
+    margin: 0;
     padding: 25px;
     list-style-type: none;
 
     img {
-        width: 100%;
-        max-width: 100px;
+        position: relative;
+        max-width: 100%;
         height: auto;
+        z-index: 2;
     }
 
     li {
@@ -108,9 +124,27 @@ body {
 
     .illustration {
         display: flex;
-        justify-content: center;
-        align-items: flex-end;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
         width: 100%;
+    }
+
+    .plant-name {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        padding: 6px;
+        background-color: $text;
+        border-radius: 5px;
+        color: $background;
+        font: {
+            size: 12px;
+            weight: 700;
+        }
+        text-transform: uppercase;
+        transform: translateY(-5px);
+        z-index: 1;
     }
 
     .add-remove {
@@ -158,12 +192,80 @@ body {
 }
 
 .plant-details {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 25px;
+    text-align: center;
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .scientific-name {
+        display: block;
+    }
+
     img {
-        max-width: 300px;
+        max-width: 100%;
+        margin: 25px 0 0;
+    }
+
+    .water-details {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .details-description {
+        text-align: justify;
     }
 }
 
 .footer {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
     padding: 0 25px;
-    text-align: right;
+    text-align: center;
+}
+
+@media screen and (min-width: 450px) {
+    .garden li {
+        max-width: 50%;
+    }
+
+    .available li {
+        max-width: 33%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .available li {
+        max-width: 25%;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .garden li {
+        max-width: 25%;
+    }
+
+    .available li {
+        max-width: 20%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .garden li {
+        max-width: 25%;
+    }
+
+    .available li {
+        max-width: 11%;
+    }
 }

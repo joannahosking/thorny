@@ -44,9 +44,14 @@ body {
 }
 
 .container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
   width: 100%;
   max-width: 1200px;
+  min-height: 100vh;
   margin: 0 auto;
+  padding-bottom: 80px;
   color: #141414;
   font-family: Montserrat, sans-serif;
   font-size: 16px;
@@ -65,8 +70,16 @@ body {
   width: 100px;
 }
 
+h2 {
+  margin: 50px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .garden li {
-  max-width: 25%;
+  max-width: 100%;
 }
 
 .garden p {
@@ -75,7 +88,7 @@ body {
 }
 
 .available li {
-  max-width: 15%;
+  max-width: 50%;
 }
 
 .garden, .available {
@@ -89,14 +102,16 @@ body {
           align-items: flex-end;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin: 0;
   padding: 25px;
   list-style-type: none;
 }
 
 .garden img, .available img {
-  width: 100%;
-  max-width: 100px;
+  position: relative;
+  max-width: 100%;
   height: auto;
+  z-index: 2;
 }
 
 .garden li, .available li {
@@ -113,13 +128,34 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
+}
+
+.garden .plant-name, .available .plant-name {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 6px;
+  background-color: #141414;
+  border-radius: 5px;
+  color: #ced3d1;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  z-index: 1;
 }
 
 .garden .add-remove, .available .add-remove {
@@ -164,12 +200,81 @@ body {
   margin-left: 5px;
 }
 
+.plant-details {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: center;
+}
+
+.plant-details h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.plant-details .scientific-name {
+  display: block;
+}
+
 .plant-details img {
-  max-width: 300px;
+  max-width: 100%;
+  margin: 25px 0 0;
+}
+
+.plant-details .water-details {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.plant-details .details-description {
+  text-align: justify;
 }
 
 .footer {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
   padding: 0 25px;
-  text-align: right;
+  text-align: center;
+}
+
+@media screen and (min-width: 450px) {
+  .garden li {
+    max-width: 50%;
+  }
+  .available li {
+    max-width: 33%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .available li {
+    max-width: 25%;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .garden li {
+    max-width: 25%;
+  }
+  .available li {
+    max-width: 20%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .garden li {
+    max-width: 25%;
+  }
+  .available li {
+    max-width: 11%;
+  }
 }
 /*# sourceMappingURL=App.css.map */
