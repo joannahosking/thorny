@@ -39,8 +39,8 @@
 }
 
 body {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(75%, #ced3d1), to(#8aa89c));
-  background: linear-gradient(to bottom, #ced3d1 75%, #8aa89c);
+  background: #ff90b9;
+  background: linear-gradient(129deg, rgba(255, 144, 185, 0.358981) 0%, rgba(122, 210, 233, 0.353379) 58%, rgba(198, 255, 221, 0.342174) 100%);
 }
 
 .container {

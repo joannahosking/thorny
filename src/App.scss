@@ -41,7 +41,8 @@ $primary: #b0d6d2;
 $secondary: #cc6c6c;
 
 body {
-    background: linear-gradient(to bottom, $background 75%, #8aa89c);
+    background: rgb(255,144,185);
+    background: linear-gradient(129deg, rgba(255,144,185,0.35898109243697474) 0%, rgba(122,210,233,0.3533788515406162) 58%, rgba(198,255,221,0.34217436974789917) 100%);
 }
 
 .container {

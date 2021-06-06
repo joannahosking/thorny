@@ -13,7 +13,7 @@ const Plants = () => {
             <h1>{data.name}</h1>
             <span className="scientific-name"><em>({data.scientificName})</em></span>
             <img src={`/illustrations/${data.id}.svg`} alt={data.name} />
-            <p className="water-details"><FontAwesomeIcon icon={faTint} /> every {data.water} days</p>
+            <p className="water-details"><FontAwesomeIcon icon={faTint} /> every {(data.water === 1) ? 'day' : data.water + ' days'}</p>
             <p className="details-description">{data.description} - <a href={data.wiki} target="_blank" rel="noreferrer">Wikipedia</a></p>
             <Link to="/">Back to the Garden</Link>
         </div>
